@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import './base.css';
+:root{
+  --primary-color: #4dadfb;
+}
 *{
   margin: 0;
   padding: 0;
@@ -70,7 +73,7 @@
         background: white;
         box-shadow: 0 0 1px rgba(40,41,61,0.04), 0 2px 4px rgba(96,97,112,0.16);
         border-radius: 4px;
-        color: #3e7bfa;
+        color: var(--primary-color);
         &:active{
           box-shadow: 0 0 0px rgba(40,41,61,0.04), 0 1px 1px rgba(96,97,112,0.16);
         }
@@ -101,8 +104,8 @@
         opacity: 0;
         &:checked{
           &~.book-widget__checkbox-overlay{
-            background: #3e7bfa;
-            border: 1px solid #3e7bfa;
+            background: var(--primary-color);
+            border: 1px solid var(--primary-color);
             div{  
               transform: translateX(22px) translateY(-50%);
             }
