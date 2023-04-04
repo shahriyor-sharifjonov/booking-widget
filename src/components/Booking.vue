@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     submitForm() {
-      this.$router.push({ name: 'detail' });
+      this.$router.push({ name: 'detail' }); 
     },
   },
 }
