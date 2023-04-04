@@ -1,17 +1,24 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
-export const bookingStore = defineStore({
-  id: 'booking',
-  state: () => ({
-    returnTrip: true,
-    type: 'from-a-to-b',
-  }),
-  actions: {
-    setReturnTrip(value) {
-      this.returnTrip = value;
+export const useBookingStore = defineStore("booking", {
+    state: () => ({
+        type: "from-a-to-b",
+        returnTrip: true,
+    }),
+    getters: {
+        getType() {
+            return this.type
+        },
+        getReturnTrip() {
+            return this.returnTrip
+        }
     },
-    setType(value) {
-      this.type = value;
-    },
-  },
-});
+    actions: {
+        setType(value) {
+            this.type = value
+        },
+        setReturnTrip(value) {
+            this.returnTrip = value
+        }
+    }
+})

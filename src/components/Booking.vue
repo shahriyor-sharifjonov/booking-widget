@@ -1,24 +1,43 @@
 <script>
-import Location from './Location.vue';
-import Date from './Date.vue';
+  import Location from './Location.vue';
+  import Date from './Date.vue';
+  import { ref } from 'vue';
+  import { computed } from 'vue';
+  import { useBookingStore } from '@/store/bookingStore';
 
-export default { 
-  components: {
-    Location,
-    Date
-  },
-  data() {
-    return {
-      type: 'from-a-to-b',
-      returnTrip: true,
-    }
-  },
-  methods: {
-    submitForm() {
-      this.$router.push({ name: 'detail' }); 
+  export default {
+    components: {
+      Location,
+      Date
     },
-  },
-}
+    setup() {
+      const booking = useBookingStore();
+      const type = computed(() => booking.type);
+      const returnTrip = ref(booking.returnTrip);
+
+      function setType(value) {
+        booking.setType(value);
+      }
+
+      function toggleReturnTrip() {
+        returnTrip.value = !returnTrip.value;
+        booking.setReturnTrip(returnTrip.value);
+      }
+
+      return {
+        booking,
+        type,
+        returnTrip,
+        setType,
+        toggleReturnTrip
+      };
+    },
+    methods: {
+      submitForm() {
+        this.$router.push({ name: 'order' }); 
+      },
+    },
+  }
 </script>
 
 <template>
@@ -26,8 +45,8 @@ export default {
     <div class="book-widget__content">
       <p class="book-widget__title">Book a transfer</p>
       <div class="book-widget__switcher">
-        <button class="book-widget__switcher-button" :class="{ 'book-widget__switcher-button_active': type === 'from-a-to-b' }" @click="type = 'from-a-to-b'">From A-to-B</button>
-        <button class="book-widget__switcher-button" :class="{ 'book-widget__switcher-button_active': type === 'hourly-ride' }" @click="type = 'hourly-ride'">Hourly ride</button>
+        <button class="book-widget__switcher-button" :class="{ 'book-widget__switcher-button_active': type === 'from-a-to-b' }" @click="setType('from-a-to-b')">From A-to-B</button>
+        <button class="book-widget__switcher-button" :class="{ 'book-widget__switcher-button_active': type === 'hourly-ride' }" @click="setType('hourly-ride')">Hourly ride</button>
       </div>
       <div class="book-widget__type" v-if="type === 'from-a-to-b'">
         <Location />
@@ -37,7 +56,7 @@ export default {
             <input type="checkbox" id="bookWidgetReTrip" v-model="returnTrip">
             <div class="book-widget__checkbox-overlay">
               <div></div>
-            </div> 
+            </div>
           </div>
           <label for="bookWidgetReTrip" class="book-widget__checkbox-label">Return Trip</label>
         </div>
