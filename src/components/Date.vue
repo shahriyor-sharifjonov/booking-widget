@@ -1,11 +1,11 @@
 <script>
-export default { 
-    data() {
-        return {
-            time: new Date().toISOString().substr(11, 5),
-            today: new Date().toISOString().substr(0, 10),
-        }
-    },
+export default {
+  data() {
+    return {
+      time: new Date().toISOString().substr(11, 5),
+      today: new Date().toISOString().substr(0, 10),
+    }
+  },
 }
 </script>
 
@@ -14,4 +14,4 @@ export default {
     <input type="date" :value="today">
     <input type="time" :value="time">
   </div>
-</template>  
+</template>

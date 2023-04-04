@@ -13,6 +13,11 @@ export default {
       returnTrip: true,
     }
   },
+  methods: {
+    submitForm() {
+      this.$router.push({ name: 'detail' });
+    },
+  },
 }
 </script>
 
@@ -82,7 +87,7 @@ export default {
         </div>
         <Date />
       </div>
-      <button class="book-widget__next">Next Step</button>
+      <button class="book-widget__next" @click="submitForm">Next Step</button>
     </div>
   </div>
 </template>

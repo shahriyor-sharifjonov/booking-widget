@@ -1,11 +1,9 @@
 <script setup>
-import Booking from './components/Booking.vue'
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <Booking />
+    <main>
+        <RouterView />
+    </main>
 </template>
-
-<style scoped>
-
-</style>
