@@ -512,6 +512,27 @@ body{
   }
 }
 
+.book-car{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: var(--border);
+  background: none;
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+  &_unactive{
+    opacity: 0.5;
+    cursor: auto;
+    pointer-events: none;
+    user-select: none;
+  }
+  &+.book-car{
+    margin-top: 15px;
+  }
+}
+
 @media (min-width: 576px) {
   .book-order__container {
     max-width: 540px;

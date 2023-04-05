@@ -1,10 +1,11 @@
 <script setup>
 import { RouterView } from 'vue-router';
-// import { useBookingStore } from '@/store/bookingStore';
+import { useBookingStore } from '@/store/bookingStore';
 
-// const booking = useBookingStore();
+const booking = useBookingStore();
 </script>
 
 <template>
+    {{ booking.returnTrip }}
     <RouterView />
 </template>

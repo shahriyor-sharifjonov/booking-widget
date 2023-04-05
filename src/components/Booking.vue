@@ -13,7 +13,7 @@
     setup() {
       const booking = useBookingStore();
       const type = computed(() => booking.type);
-      const returnTrip = ref(booking.returnTrip);
+      const returnTrip = computed(() => booking.returnTrip);
 
       function setType(value) {
         booking.setType(value);

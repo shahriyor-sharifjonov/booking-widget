@@ -13,7 +13,7 @@ export default {
     }
 
     function incrementSuitcases() {
-        if (suitcases.value < 9) {
+        if (suitcases.value < 6) {
             setSuitcases(suitcases.value + 1);
         }
     }

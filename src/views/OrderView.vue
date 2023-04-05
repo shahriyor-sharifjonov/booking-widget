@@ -1,6 +1,26 @@
-<script setup>
+<script>
 import Action from '../components/Action.vue'
 import Header from '../components/OrderHeader.vue'
+import Car from '../components/Car.vue'
+import { computed } from 'vue';
+import { useBookingStore } from '@/store/bookingStore';
+
+export default {
+  components: {
+    Action,
+    Header,
+    Car,
+  },
+  setup() {
+    const booking = useBookingStore();
+    const cars = computed(() => booking.cars);
+
+    return {
+      booking,
+      cars,
+    };
+  }
+}
 </script>
 
 <template>
@@ -16,6 +36,7 @@ import Header from '../components/OrderHeader.vue'
             </button> -->
           <!-- </div> -->
           <Action />
+          <Car v-for="(car, index) in cars" :key="index" :car="car" :img="car.img" :carclass="car.carclass" :price="car.price" :name="car.name" :passengers="car.passengers" :suitcases="car.suitcases" />
         </div>
         <div class="book-order__info">
           <p class="book-order__info-title">Summary</p>
