@@ -1,9 +1,9 @@
 <script>
-  import Location from './Location.vue';
-  import Date from './Date.vue';
   import { ref } from 'vue';
   import { computed } from 'vue';
   import { useBookingStore } from '@/store/bookingStore';
+  import Location from './Location.vue';
+  import Date from './Date.vue';
 
   export default {
     components: {

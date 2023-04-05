@@ -22,8 +22,8 @@ export default {
       required: true
     },
     score: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     }
   }
 };
