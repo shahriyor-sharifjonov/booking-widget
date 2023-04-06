@@ -14,14 +14,13 @@
       const booking = useBookingStore();
       const type = computed(() => booking.type);
       const returnTrip = computed(() => booking.returnTrip);
+      const pickup = computed(() => booking.fromAToB.pickup)
 
       function setType(value) {
         booking.setType(value);
       }
 
       function toggleReturnTrip() {
-        console.log('toggle');
-        // returnTrip.value = !returnTrip.value;
         booking.setReturnTrip(!returnTrip.value);
       }
 
@@ -29,6 +28,7 @@
         booking,
         type,
         returnTrip,
+        pickup,
         setType,
         toggleReturnTrip
       };
@@ -44,7 +44,7 @@
 <template>
   <div class="book-widget">
     <div class="book-widget__content">
-      <p class="book-widget__title">Book a transfer {{ returnTrip }}</p>
+      <p class="book-widget__title">Book a transfer</p>
       <div class="book-widget__switcher">
         <button class="book-widget__switcher-button" :class="{ 'book-widget__switcher-button_active': type === 'from-a-to-b' }" @click="setType('from-a-to-b')">From A-to-B</button>
         <button class="book-widget__switcher-button" :class="{ 'book-widget__switcher-button_active': type === 'hourly-ride' }" @click="setType('hourly-ride')">Hourly ride</button>

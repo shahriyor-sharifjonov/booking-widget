@@ -2,12 +2,14 @@
 :root{
   --background: #FAF8F2;
   --border-color: #1A1B19;
+  --text: #1A1B19;
   --border: 1.5px solid var(--border-color);
   --gray: #A7A7A7;
   --primary-color: #387DFD;
   --primary-gradient: linear-gradient(180deg, #0051E7 0%, #387DFD 100%);
   --primary-color-dark: #008cff;
   --primary-color-light: #1e9aff;
+  // --secondary-color: #FBB402;
   --secondary-color: #FFD339;
 }
 *{
@@ -18,6 +20,7 @@
 }
 body{
   background: var(--background);
+  color: var(--text);
 }
 .book-widget,
 .book-order{
@@ -26,6 +29,7 @@ body{
   height: 100%;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
+  color: var(--text);
   *{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -329,6 +333,7 @@ body{
     position: relative;
   }
   &__cars{
+    color: var(--text);
     flex-basis: calc(50% - 12px);
     background: var(--background);
     // box-shadow: 0 0 30px -10px #00000050;
@@ -340,6 +345,7 @@ body{
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 20px;
     }
     &-title{
       font-size: 22px;
@@ -361,7 +367,9 @@ body{
   }
   &__info{
     flex-basis: calc(50% - 12px);
+    max-width: calc(50% - 12px);
     background: var(--background);
+    color: var(--text);
     border: var(--border);
     // box-shadow: 0 0 30px -10px #00000050;
     border-radius: 15px;
@@ -371,7 +379,98 @@ body{
     &-title{
       font-size: 22px;
       line-height: 120%;
+    }
+    &-img{
+      max-width: 100%;
+      border: var(--border);
+      border-radius: 15px;
+      overflow: hidden;
       margin-bottom: 20px;
+      img{
+        width: 100%;
+      }
+    }
+    &-date{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 20px;
+    }
+    &-location{
+      position: relative;
+      margin-bottom: 20px;
+      span{
+        position: absolute;
+        height: calc(100% - 10px);
+        top: 5px;
+        left: 7px;
+        width: 2px;
+        background: var(--secondary-color);
+        display: block;
+      }
+      div{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        &~div{
+          margin-top: 8px;
+        }
+        &::before{
+          content: '';
+          width: 12px;
+          height: 12px;
+          border: 2px solid var(--secondary-color);
+          background: var(--background);
+          border-radius: 50%;
+          z-index: 1;
+        }
+      }
+    }
+    &-car{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-left{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        &>svg{
+          width: 25px;
+          height: 25px;
+          margin-right: 8px;
+        }
+      }
+      &-price{
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 120%;
+        color: var(--primary-color);
+      }
+    }
+    &-suit{
+      background: var(--text);
+      border-radius: 4px;
+      padding: 6px 12px;
+      color: var(--background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-left: 12px;
+      &-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        svg{
+          width: 15px;
+          height: 15px;
+        }
+      }
     }
   }
 }

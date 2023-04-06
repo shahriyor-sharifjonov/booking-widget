@@ -4,6 +4,22 @@ export const useBookingStore = defineStore("booking", {
     state: () => ({
         type: "from-a-to-b",
         returnTrip: true,
+        // fromAToB: {
+        //     pickup: "",
+        //     dropoff: "",
+        //     date: "",
+        //     time: "",
+        //     returnTrip: {
+        //         pickup: "",
+        //         dropoff: "",
+        //         date: "",
+        //         time: ""
+        //     }
+        // },
+        // hourlyRide: {
+        //     pickup: "",
+        //     time: ""
+        // },
         suitcases: 0,
         passengers: 1,
         cars: [
@@ -14,7 +30,7 @@ export const useBookingStore = defineStore("booking", {
                 type: "sedan",
                 passengers: "4",
                 suitcases: "4",
-                price: "477",
+                price: "477.00",
                 img: "/skoda-octavia.png"
             },
             {
@@ -71,6 +87,12 @@ export const useBookingStore = defineStore("booking", {
         car: {},
     }),
     getters: {
+        // getFromAToB() {
+        //     return this.fromAToB
+        // },
+        // getHourlyRide() {
+        //     return this.hourlyRide
+        // },
         getSuitcases() {
             return this.suitcases
         },
@@ -88,20 +110,26 @@ export const useBookingStore = defineStore("booking", {
         }
     },
     actions: {
+        // setFromAToB(value) {
+        //     this.fromAToB = value 
+        // },
+        // setHourlyRide(value) {
+        //     this.hourlyRide = value 
+        // },
         setSuitcases(value) {
-            this.suitcases = value
+            this.suitcases = value 
         },
         setPassengers(value) {
-            this.passengers = value
+            this.passengers = value 
         },
         setType(value) {
-            this.type = value
+            this.type = value 
         },
         setReturnTrip(value) {
-            this.returnTrip = value
+            this.returnTrip = value 
         },
         setCar(value) {
-            this.car = value; 
+            this.car = value 
         }
     }
 })

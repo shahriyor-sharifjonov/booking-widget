@@ -9,20 +9,21 @@ export default {
         const suitcasesNum = computed(() => booking.suitcases);
         const returnTrip = computed(() => booking.returnTrip);
         const selected = computed(() => booking.car.id === props.id);
+        const car = computed(() => booking.car);
 
         const onClick = () => {
             booking.setCar(props);
         };
 
         watch((suitcasesNum), (newValue, oldValue) => {
-            const suit = Number(document.querySelector('.book-car_active .book-car__item-suitcases')?.innerHTML);
+            const suit = car.value.suitcases;
             if(suit && suit < newValue) {
                 booking.setCar({});
             }
         });
 
         watch((passengersNum), (newValue, oldValue) => {
-            const pass = Number(document.querySelector('.book-car_active .book-car__item-passengers')?.innerHTML);
+            const pass = car.value.passengers;
             if(pass && pass < newValue) {
                 booking.setCar({});
             }
