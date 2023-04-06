@@ -13,6 +13,7 @@ export default {
     }
 
     function incrementSuitcases() {
+        // 6 - это максимальное значение объема багажника в машинах. Лучше автоматизировать это, выбирая максимальный объем, доступный в каждой машине.
         if (suitcases.value < 6) {
             setSuitcases(suitcases.value + 1);
         }
@@ -29,6 +30,7 @@ export default {
     }
 
     function incrementPassengers() {
+        // 8 - это максимальное количество пассажиров в машине. Лучше автоматизировать это значение. Мы возьмем максимально возможное количество пассажиров из доступных машин
         if (passengers.value < 8) {
             setPassengers(passengers.value + 1);
         }
