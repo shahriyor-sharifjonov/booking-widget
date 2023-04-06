@@ -67,7 +67,8 @@ export const useBookingStore = defineStore("booking", {
                 price: "644.00",
                 img: "/skoda-octavia.png"
             },
-        ]
+        ],
+        car: {},
     }),
     getters: {
         getSuitcases() {
@@ -81,6 +82,9 @@ export const useBookingStore = defineStore("booking", {
         },
         getReturnTrip() {
             return this.returnTrip
+        },
+        getCar() {
+            return this.car.id
         }
     },
     actions: {
@@ -95,6 +99,9 @@ export const useBookingStore = defineStore("booking", {
         },
         setReturnTrip(value) {
             this.returnTrip = value
+        },
+        setCar(value) {
+            this.car = value; 
         }
     }
 })

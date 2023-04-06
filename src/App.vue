@@ -6,6 +6,6 @@ const booking = useBookingStore();
 </script>
 
 <template>
-    {{ booking.returnTrip }}
+    <!-- {{ booking.car }} -->
     <RouterView />
 </template>

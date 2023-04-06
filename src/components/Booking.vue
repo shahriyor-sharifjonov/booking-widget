@@ -20,8 +20,9 @@
       }
 
       function toggleReturnTrip() {
-        returnTrip.value = !returnTrip.value;
-        booking.setReturnTrip(returnTrip.value);
+        console.log('toggle');
+        // returnTrip.value = !returnTrip.value;
+        booking.setReturnTrip(!returnTrip.value);
       }
 
       return {
@@ -43,7 +44,7 @@
 <template>
   <div class="book-widget">
     <div class="book-widget__content">
-      <p class="book-widget__title">Book a transfer</p>
+      <p class="book-widget__title">Book a transfer {{ returnTrip }}</p>
       <div class="book-widget__switcher">
         <button class="book-widget__switcher-button" :class="{ 'book-widget__switcher-button_active': type === 'from-a-to-b' }" @click="setType('from-a-to-b')">From A-to-B</button>
         <button class="book-widget__switcher-button" :class="{ 'book-widget__switcher-button_active': type === 'hourly-ride' }" @click="setType('hourly-ride')">Hourly ride</button>
@@ -53,7 +54,7 @@
         <Date />
         <div class="book-widget__checkbox">
           <div class="book-widget__checkbox-input">
-            <input type="checkbox" id="bookWidgetReTrip" v-model="returnTrip">
+            <input type="checkbox" id="bookWidgetReTrip" v-model="returnTrip" @change="toggleReturnTrip">
             <div class="book-widget__checkbox-overlay">
               <div></div>
             </div>

@@ -36,7 +36,7 @@ export default {
             </button> -->
           <!-- </div> -->
           <Action />
-          <Car v-for="(car, index) in cars" :key="index" :car="car" :img="car.img" :carclass="car.carclass" :price="car.price" :name="car.name" :passengers="car.passengers" :suitcases="car.suitcases" />
+          <Car v-for="(car, index) in cars" :key="index" :id="car.id" :img="car.img" :carclass="car.carclass" :price="car.price" :name="car.name" :passengers="car.passengers" :suitcases="car.suitcases" />
         </div>
         <div class="book-order__info">
           <p class="book-order__info-title">Summary</p>

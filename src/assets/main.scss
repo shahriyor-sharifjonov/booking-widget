@@ -3,6 +3,7 @@
   --background: #FAF8F2;
   --border-color: #1A1B19;
   --border: 1.5px solid var(--border-color);
+  --gray: #A7A7A7;
   --primary-color: #387DFD;
   --primary-gradient: linear-gradient(180deg, #0051E7 0%, #387DFD 100%);
   --primary-color-dark: #008cff;
@@ -522,6 +523,13 @@ body{
   border-radius: 15px;
   padding: 20px;
   cursor: pointer;
+  transition: 300ms ease;
+  &_active{
+    background: var(--secondary-color);
+    .book-car__desc{
+      color: var(--text);
+    }
+  }
   &_unactive{
     opacity: 0.5;
     cursor: auto;
@@ -530,6 +538,78 @@ body{
   }
   &+.book-car{
     margin-top: 15px;
+  }
+  &__img{
+    line-height: 0;
+  }
+  &__content{
+    width: 100%;
+    padding-left: 20px;
+  }
+  &__title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    span{
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      // color: var(--primary-color);
+      &+span{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        // color: var(--text);
+      }
+    }
+  }
+  &__desc{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--gray);
+    text-align: left;
+    margin-bottom: 4px;
+  }
+  &__bot{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__row{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  &__item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--text);
+    svg{
+      width: 17px;
+      height: 17px;
+      fill: var(--text);
+    }
+  }
+  &__type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #FAF8F2;
+    padding: 4px 10px;
+    background: var(--border-color);
+    border-radius: 4px;
   }
 }
 
