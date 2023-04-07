@@ -671,6 +671,7 @@ body{
     color: #FFFFFF;
   }
   &__dropdown{
+    position: relative;
     img{
       line-height: 0;
     }
@@ -688,6 +689,11 @@ body{
       font-weight: 400;
       font-size: 14px;  
       line-height: 18px;
+      &_active{
+        svg{
+          transform: scaleY(-1);
+        }
+      }
       span{
         margin-right: 8px;
       }
@@ -696,16 +702,40 @@ body{
       }
       svg{
         margin-left: auto;
+        transition: 300ms ease;
       }
     }
     &-content{
       flex-direction: column;
-      display: none;
+      display: flex;
+      position: absolute;
+      top: calc(100% + 10px);
+      border: var(--border);
+      border-radius: 15px;
+      width: 100%;
+      z-index: 10;
+      overflow: hidden;
     }
     &-item{
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      border: none;
+      padding: 10px 12px;
+      background: var(--background);
+      font-size: 14px;
+      transition: 300ms ease;
+      cursor: pointer;
+      &:hover{
+        background: #ebebf0;
+      }
+      &+.book-header__dropdown-item{
+        padding-top: 10px;
+      }
+      img{
+        line-height: 0;
+        margin-right: 10px;
+      }
     }
   }
 }
