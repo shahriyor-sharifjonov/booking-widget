@@ -31,7 +31,8 @@ export default {
   },
   data() {
     return { 
-      services: false
+      services: false,
+      editable: false 
     }
   },
   setup() {
@@ -46,6 +47,9 @@ export default {
   methods: {
     toggleServices() {
       this.services = !this.services;
+    },
+    toggleEditable() {
+      this.editable = !this.editable;
     }
   }
 }
@@ -100,18 +104,25 @@ export default {
         <div class="book-order__info">
           <div class="book-order__cars-header">
             <p class="book-order__info-title">Summary</p>
-            <button class="book-order__cars-edit">
+            <button class="book-order__cars-edit" @click="toggleEditable" :class="{'book-order__cars-edit_active' : editable}">
               <img src="/edit.png" alt="" draggable="false">
             </button>
           </div>
           <div class="book-order__info-img">
             <img src="/staticmap.png" alt="" draggable="false"/>
           </div>
-          <p class="book-order__info-date">04 April, 17:52</p>
+          <p class="book-order__info-date" v-if="editable === false">04 April, 17:52</p>
+          <input class="book-order__info-date" v-if="editable === true" value="04 April, 17:52">
           <div class="book-order__info-location">
-            <div>Gera</div>
+            <div v-if="editable === false">Gera</div>
+            <div v-if="editable === true">
+              <input type="text" value="Gera">
+            </div>
             <span></span>
-            <div>Berlin</div>
+            <div v-if="editable === false">Berlin</div>
+            <div v-if="editable === true">
+              <input type="text" value="Berlin">
+            </div>
           </div>
           <div class="book-order__info-car" v-if="booking.car.carclass">
             <div class="book-order__info-car-left"> 
