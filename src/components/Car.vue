@@ -59,6 +59,10 @@ export default {
             type: String,
             required: true,
         },
+        type: {
+            type: String,
+            required: true,
+        },
         passengers: {
             type: String,
             required: true,

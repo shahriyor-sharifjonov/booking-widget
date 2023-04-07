@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useBookingStore = defineStore("booking", {
     state: () => ({
         type: "from-a-to-b",
-        returnTrip: true,
+        returnTrip: false,
         // fromAToB: {
         //     pickup: "",
         //     dropoff: "",

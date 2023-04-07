@@ -4,15 +4,33 @@ import Header from '../components/OrderHeader.vue'
 import Car from '../components/Car.vue'
 import { computed } from 'vue';
 import { useBookingStore } from '@/store/bookingStore';
+import PersSign from '../components/PersSign.vue';
+import PersComment from '../components/PersComment.vue';
+import PersWait from '../components/PersWait.vue';
+import PersStop from '../components/PersStop.vue';
+import PersMusic from '../components/PersMusic.vue';
+import PersLanguage from '../components/PersLanguage.vue';
+import PersSeat from '../components/PersSeat.vue';
+import PersWater from '../components/PersWater.vue';
+import PersLuggage from '../components/PersLuggage.vue';
 
 export default {
   components: {
     Action,
     Header,
     Car,
+    PersSign,
+    PersComment,
+    PersWait,
+    PersStop,
+    PersMusic,
+    PersLanguage,
+    PersSeat,
+    PersWater,
+    PersLuggage
   },
   data() {
-    return {
+    return { 
       services: false
     }
   },
@@ -42,7 +60,7 @@ export default {
           <div class="book-order__cars">
             <p class="book-order__cars-title">Vehicle Class</p>
             <Action />
-            <Car v-for="(car, index) in cars" :key="index" :id="car.id" :img="car.img" :carclass="car.carclass" :price="car.price" :name="car.name" :passengers="car.passengers" :suitcases="car.suitcases" />
+            <Car v-for="(car, index) in cars" :key="index" :id="car.id" :img="car.img" :carclass="car.carclass" :type="car.type" :price="car.price" :name="car.name" :passengers="car.passengers" :suitcases="car.suitcases" />
           </div>
           <div class="book-order__rec">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,6 +75,15 @@ export default {
           </div>
           <div class="book-order__cars">
             <p class="book-order__cars-title">Personalize your Transfer</p>
+            <PersSign />
+            <PersSeat />
+            <PersLanguage />
+            <PersMusic />
+            <PersWater />
+            <PersLuggage />
+            <PersStop />
+            <PersWait />
+            <PersComment />
           </div>
           <div class="book-order__rec">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
