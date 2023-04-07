@@ -669,6 +669,25 @@ body{
     font-size: 14px;
     line-height: 18px;
     color: #FFFFFF;
+    &_nobg{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      font-size: 18px;
+      padding-right: 10px;
+      label, input{
+        cursor: pointer;
+      }
+      input{
+        width: 15px;
+        height: 15px;
+      }
+      label{
+        user-select: none;
+        color: var(--text);
+      }
+    }
   }
   &__dropdown{
     position: relative;

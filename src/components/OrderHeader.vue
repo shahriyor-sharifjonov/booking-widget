@@ -15,10 +15,10 @@
 
 <template>
     <div class="book-header">
-        <button class="book-header__button">
+        <div class="book-header__button_nobg">
             <input type="checkbox" id="sharedtaxi">
             <label for="sharedtaxi">Shared Taxi</label>
-        </button>
+        </div>
         <button class="book-header__button">
             Email Quote 
         </button>
