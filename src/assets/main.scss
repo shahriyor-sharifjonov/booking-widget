@@ -332,15 +332,20 @@ body{
     align-items: flex-start;
     position: relative;
   }
-  &__cars{
-    color: var(--text);
+  &__left{
     flex-basis: calc(50% - 12px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  &__cars{
+    width: 100%;
+    color: var(--text);
     background: var(--background);
     // box-shadow: 0 0 30px -10px #00000050;
     border: var(--border);
     border-radius: 15px;
     padding: 30px;
-    min-height: 800px;
     &-header{
       display: flex;
       align-items: center;
@@ -486,6 +491,7 @@ body{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding-left: 33px;
         &+.book-order__info-car-subchild{
           margin-top: 8px;
         }
@@ -541,6 +547,17 @@ body{
         }
       }
     }
+  }
+  &__rec{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px 30px;
+    background: var(--secondary-color);
+    border: var(--border);
+    border-radius: 15px;
+    gap: 8px;
+    color: var(--text);
   }
 }
 
