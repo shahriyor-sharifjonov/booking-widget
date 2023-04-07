@@ -386,6 +386,7 @@ body{
       border-radius: 15px;
       overflow: hidden;
       margin-bottom: 20px;
+      line-height: 0;
       img{
         width: 100%;
       }
@@ -430,18 +431,69 @@ body{
         }
       }
     }
+    button.book-order__info-car{
+      cursor: pointer;
+    }
     &-car{
       display: flex;
       align-items: center;
       justify-content: space-between;
+      width: 100%;
+      border: none;
+      background: none;
+      &_active{
+        .book-order__info-car-left{
+          span{
+            svg{
+              transform: scaleY(-1);
+            }
+          }
+        }
+      }
+      &+.book-order__info-car-wrap{
+        margin-top: 18px;
+      }
+      &+.book-order__info-car{
+        margin-top: 18px;
+      }
       &-left{
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        span{
+          font-weight: 400;
+          font-size: 16px;
+          color: var(--text);
+          line-height: 120%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 4px;
+          svg{
+            transition: 300ms ease;
+          }
+        }
         &>svg{
           width: 25px;
           height: 25px;
           margin-right: 8px;
+        }
+      }
+      &-content{
+        padding-top: 20px;
+      }
+      &-subchild{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &+.book-order__info-car-subchild{
+          margin-top: 8px;
+        }
+        span{
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+          color: var(--gray);
         }
       }
       &-price{
@@ -469,6 +521,23 @@ body{
         svg{
           width: 15px;
           height: 15px;
+        }
+      }
+    }
+    &-total{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: var(--border);
+      margin-top: 25px;
+      padding-top: 25px;
+      span{
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        color: var(--text);
+        &+span{
+          color: var(--primary-color);
         }
       }
     }

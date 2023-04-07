@@ -11,6 +11,11 @@ export default {
     Header,
     Car,
   },
+  data() {
+    return {
+      services: false
+    }
+  },
   setup() {
     const booking = useBookingStore();
     const cars = computed(() => booking.cars);
@@ -19,6 +24,11 @@ export default {
       booking,
       cars,
     };
+  },
+  methods: {
+    toggleServices() {
+      this.services = !this.services;
+    }
   }
 }
 </script>
@@ -78,6 +88,35 @@ export default {
               </div>
             </div>
             <span class="book-order__info-car-price">${{ booking.car.price }}</span>
+          </div>
+          <div class="book-order__info-car-wrap">
+            <button @click="toggleServices" class="book-order__info-car" :class="{'book-order__info-car_active' : services === true}">
+              <div class="book-order__info-car-left"> 
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.30502 1.76917C6.57252 1.76001 4.88585 3.42834 5.65585 5.50001H2.75002C2.26379 5.50001 1.79747 5.69316 1.45366 6.03698C1.10984 6.38079 0.916687 6.84711 0.916687 7.33334V9.16667C0.916687 9.40979 1.01326 9.64294 1.18517 9.81485C1.35708 9.98676 1.59024 10.0833 1.83335 10.0833H10.0834V7.33334H11.9167V10.0833H20.1667C20.4098 10.0833 20.643 9.98676 20.8149 9.81485C20.9868 9.64294 21.0834 9.40979 21.0834 9.16667V7.33334C21.0834 6.84711 20.8902 6.38079 20.5464 6.03698C20.2026 5.69316 19.7363 5.50001 19.25 5.50001H16.3442C17.4167 2.50251 13.3834 0.385005 11.5225 2.97001L11 3.66667L10.4775 2.95167C9.90002 2.13584 9.10252 1.77834 8.30502 1.76917ZM8.25002 3.66667C9.06585 3.66667 9.47835 4.65667 8.90085 5.23417C8.32335 5.81167 7.33335 5.39917 7.33335 4.58334C7.33335 4.34022 7.42993 4.10707 7.60184 3.93516C7.77375 3.76325 8.00691 3.66667 8.25002 3.66667ZM13.75 3.66667C14.5659 3.66667 14.9784 4.65667 14.4009 5.23417C13.8234 5.81167 12.8334 5.39917 12.8334 4.58334C12.8334 4.34022 12.9299 4.10707 13.1018 3.93516C13.2737 3.76325 13.5069 3.66667 13.75 3.66667ZM1.83335 11V18.3333C1.83335 18.8196 2.02651 19.2859 2.37032 19.6297C2.71414 19.9735 3.18046 20.1667 3.66669 20.1667H18.3334C18.8196 20.1667 19.2859 19.9735 19.6297 19.6297C19.9735 19.2859 20.1667 18.8196 20.1667 18.3333V11H11.9167V18.3333H10.0834V11H1.83335Z" fill="#1A1B19"/>
+                </svg>
+                <span>Extra services
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.4173 9.57721L5.25434 7.41425C4.9909 7.15081 4.93211 6.84938 5.07797 6.50996C5.22383 6.17054 5.48367 6.00055 5.85747 6H10.1418C10.5162 6 10.7763 6.16999 10.9221 6.50996C11.068 6.84993 11.0089 7.15136 10.7449 7.41425L8.58197 9.57721C8.49878 9.6604 8.40866 9.72279 8.3116 9.76439C8.21455 9.80599 8.11056 9.82678 7.99964 9.82678C7.88872 9.82678 7.78473 9.80599 7.68767 9.76439C7.59061 9.72279 7.50049 9.6604 7.4173 9.57721Z" fill="#1A1B19"/>
+                  </svg>
+                </span>
+              </div>
+              <span class="book-order__info-car-price">$0.00</span>
+            </button>
+            <div class="book-order__info-car-content" v-if="services === true">
+              <div class="book-order__info-car-subchild">
+                <span>I require a child seat</span>
+                <span>$15.00</span>
+              </div>
+              <div class="book-order__info-car-subchild">
+                <span>A bottle of water</span>
+                <span>$3.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="book-order__info-total">
+            <span>Total:</span>
+            <span>$495</span>
           </div>
         </div>
       </div>
