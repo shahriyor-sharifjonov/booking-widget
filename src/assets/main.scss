@@ -906,6 +906,10 @@ body{
     line-height: 120%;
     color: var(--text);
     margin-bottom: 4px;
+    &_small{
+      font-size: 14px;
+      color: var(--gray);
+    }
   }
   &__p{
     font-weight: 400;
@@ -919,6 +923,10 @@ body{
   &__bot{
     padding-left: 50px;
     padding-top: 12px;
+    &.pl-0{
+      padding-top: 2px;
+      padding-left: 0;
+    }
   }
   &__field{
     &-text{
