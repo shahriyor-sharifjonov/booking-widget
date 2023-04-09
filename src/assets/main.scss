@@ -192,6 +192,7 @@ body{
   &__location{
     position: relative;
     background: #fafafc;
+    border: 1px solid var(--gray);
     border-radius: 6px;
     padding: 12px 16px;
     &-btn{
@@ -206,6 +207,8 @@ body{
     &-solo{
       background: #fafafc;
       padding: 0px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--gray);
       height: 46px;
       .book-widget__location-wrapper{
         margin-right: 0;
@@ -251,6 +254,7 @@ body{
       border: none;
       background: #fafafc;
       height: 46px;
+      border: 1px solid var(--gray);
       border-radius: 6px;
       padding: 15px;
     }
@@ -908,6 +912,7 @@ body{
     margin-bottom: 4px;
     &_small{
       font-size: 14px;
+      font-weight: 400;
       color: var(--gray);
     }
   }
