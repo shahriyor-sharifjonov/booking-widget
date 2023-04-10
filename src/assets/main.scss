@@ -595,6 +595,26 @@ body{
     gap: 8px;
     color: var(--text);
   }
+  &__btn{
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--background);
+    border-radius: 15px;
+    border: none;
+    background: var(--primary-gradient);
+    margin-bottom: -10px;
+  }
+  &__p{
+    color: var(--gray);
+    font-size: 14px;
+    a{
+      color: var(--primary-color);
+    }
+  }
 }
 
 
@@ -688,6 +708,7 @@ body{
     border-radius: 15px;
     padding: 10px 24px;
     border: none;
+    height: 47px;
     cursor: pointer;
     font-weight: 400;
     font-size: 14px;
@@ -1005,6 +1026,31 @@ body{
 }
 
 
+.book-payment{
+  &__button{
+    padding: 20px 50px;
+    background: #e5f0ff;
+    border: var(--border);
+    border-radius: 15px;
+    cursor: pointer;
+    img{
+      line-height: 0;
+    }
+  }
+}
+
+
+.book-footer{
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 1px solid var(--gray);
+  text-align: center;
+  a{
+    color: var(--primary-color);
+  }
+}
+
+
 @keyframes threat {
   0%{
     transform: rotate(5deg);
@@ -1014,6 +1060,175 @@ body{
   }
   100%{
     transform: rotate(5deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  .book-order__wrapper{
+    flex-direction: column;
+  }
+  .book-order__left,
+  .book-order__info{
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+  .book-order__info{
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-action{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .book-action__item{
+    width: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .book-header{
+    flex-wrap: wrap;
+    gap: 13px;
+    &__button_nobg{
+      order: 1;
+    }
+  }
+  .book-car{
+    flex-direction: column;
+    gap: 15px;
+    &__img{
+      width: 150px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .book-car{
+    &__content{
+      padding-left: 0;
+    }
+    &__title{
+      span{
+        font-size: 16px;
+        text-align: left;
+      }
+    }
+    &__desc{
+      margin-bottom: 8px;
+    }
+  }
+  .book-order__info-date{
+    margin-bottom: 10px;
+  }
+  .book-order__info-car-content{
+    padding-top: 18px;
+  }
+  .book-pers__bot{
+    padding-left: 44px;
+  }
+  .book-order__info-car-price{
+    font-size: 16px;
+  }
+  .book-order__info-car-subchild span{
+    font-size: 12px;
+  }
+  .book-order__info-suit-item{
+    font-size: 14px;
+  }
+  .book-order__info-car-subchild{
+    padding-left: 27px;
+  }
+  .book-order__info-total{
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+  .book-order__info-car-left{
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  .book-order__info-car-left > svg{
+    width: 18px;
+    min-width: 18px;
+  }
+  .book-order__info-suit{
+    margin-left: 0;
+  }
+  .book-order__info-car-left span{
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  .book-order{
+    &__rec{
+      font-size: 14px;
+      padding: 12px 20px;
+      gap: 12px;
+    }
+    &__info{
+      padding: 15px;
+      &-title{
+        font-size: 20px;
+      }
+    }
+    &__cars{
+      padding: 15px;
+      &-title{
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+    }
+  }
+  .book-widget{
+    padding: 15px;
+    &__title{
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+    &__location{
+      padding: 4px 16px;
+    }
+    &__content{
+      padding: 15px;
+    }
+  }
+  .book-pers{
+    padding-top: 0px;
+    &__title{
+      font-size: 14px;
+    }
+    &__p{
+      font-size: 12px;
+    }
+    &__top-left{
+      img{
+        width: 24px;
+      }
+    }
+  }
+  .book-payment__button{
+    padding: 20px 40px;
+    line-height: 0;
+    img{
+      width: 80px;
+    }
+  }.book-order__btn{
+    padding: 16px;
+  }
+  .book-details__p{
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .book-details__field{
+    &+.book-details__field{
+      margin-top: 10px;
+    }
+    &-label{
+      font-size: 12px;
+    }
   }
 }
 

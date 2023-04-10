@@ -15,6 +15,7 @@ import PersWater from '../components/PersWater.vue';
 import PersLuggage from '../components/PersLuggage.vue';
 import PassengerDetails from '../components/PassengerDetails.vue';
 import PersFlight from '../components/PersFlight.vue';
+import Payment from '../components/Payment.vue';
 
 export default {
   components: {
@@ -32,6 +33,7 @@ export default {
     PersLuggage,
     PassengerDetails,
     PersFlight,
+    Payment
   },
   data() {
     return { 
@@ -106,6 +108,11 @@ export default {
             Flexible cancellation up to 24 Hours before your transfer
           </div>
           <PassengerDetails />
+          <Payment />
+          <button class="book-order__btn">
+            Payment
+          </button>
+          <p class="book-order__p">By clicking "Payment" or "Request" you agree with <a href="#">Terms & Conditions</a>. The service is provided by Atob Transfer LTD</p>
         </div>
         <div class="book-order__info">
           <div class="book-order__cars-header">
@@ -190,6 +197,9 @@ export default {
             <span>$495</span>
           </div>
         </div>
+      </div>
+      <div class="book-footer">
+        <p>Powered by <a href="#">Bestprice</a></p>
       </div>
     </div>
   </div>
