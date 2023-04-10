@@ -15,12 +15,13 @@
 
 <template>
     <div class="book-header">
-        <div class="book-header__button_nobg">
+        <div class="book-header__button">
             <input type="checkbox" id="sharedtaxi">
-            <label for="sharedtaxi">Shared Taxi</label>
+            <p>Shared Taxi</p>
+            <label for="sharedtaxi" class="book-header__button-overlay"></label>
         </div>
         <button class="book-header__button">
-            Email Quote 
+            Email Quote
         </button>
         <div class="book-header__dropdown">
             <button class="book-header__dropdown-btn" :class="{'book-header__dropdown-btn_active' : open}" @click="toggleContent">
