@@ -13,6 +13,7 @@ import PersLanguage from '../components/PersLanguage.vue';
 import PersSeat from '../components/PersSeat.vue';
 import PersWater from '../components/PersWater.vue';
 import PersLuggage from '../components/PersLuggage.vue';
+import PassengerDetails from '../components/PassengerDetails.vue';
 
 export default {
   components: {
@@ -27,7 +28,8 @@ export default {
     PersLanguage,
     PersSeat,
     PersWater,
-    PersLuggage
+    PersLuggage,
+    PassengerDetails
   },
   data() {
     return { 
@@ -100,6 +102,7 @@ export default {
             </svg>
             Flexible cancellation up to 24 Hours before your transfer
           </div>
+          <PassengerDetails />
         </div>
         <div class="book-order__info">
           <div class="book-order__cars-header">
