@@ -52,8 +52,8 @@
             <div class="book-pers__field">
                 <div class="book-pers__field-counter">
                     <div class="book-pers__field-counter-left">
-                        <p>Baby chair</p>
-                        <p>Weight: 9-18 kg</p>
+                        <p>Baby seat</p>
+                        <p>0-3 years</p>
                     </div>
                     <div class="book-action__counter">
                         <button class="book-action__counter-decrement" @click="decrementBabyChair">
@@ -71,8 +71,8 @@
                 </div>
                 <div class="book-pers__field-counter">
                     <div class="book-pers__field-counter-left">
-                        <p>Booster</p>
-                        <p>Weight: 15-36 kg</p>
+                        <p>Child seat</p>
+                        <p>3-11 years</p>
                     </div>
                     <div class="book-action__counter">
                         <button class="book-action__counter-decrement" @click="decrementBooster">
@@ -88,7 +88,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="book-pers__field-counter">
+                <!-- <div class="book-pers__field-counter">
                     <div class="book-pers__field-counter-left">
                         <p>Infant seat</p>
                         <p>Weight: up to 9 kg</p>
@@ -106,7 +106,7 @@
                             </svg>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

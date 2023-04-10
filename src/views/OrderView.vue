@@ -88,10 +88,10 @@ export default {
             <PersFlight />
             <PersSign />
             <PersSeat />
-            <PersLanguage />
-            <PersMusic />
-            <PersWater />
-            <PersLuggage />
+            <!-- <PersLanguage /> -->
+            <!-- <PersMusic /> -->
+            <!-- <PersWater /> -->
+            <!-- <PersLuggage /> -->
             <PersStop />
             <PersWait />
             <PersComment />
@@ -117,15 +117,17 @@ export default {
         <div class="book-order__info">
           <div class="book-order__cars-header">
             <p class="book-order__info-title">Summary</p>
-            <button class="book-order__cars-edit" @click="toggleEditable" :class="{'book-order__cars-edit_active' : editable}">
-              <img src="/edit.png" alt="" draggable="false">
-            </button>
           </div>
           <div class="book-order__info-img">
             <img src="/staticmap.png" alt="" draggable="false"/>
           </div>
-          <p class="book-order__info-date" v-if="editable === false">04 April, 17:52</p>
-          <input class="book-order__info-date" v-if="editable === true" value="04 April, 17:52">
+          <div class="book-order__info-header">
+            <p class="book-order__info-date" v-if="editable === false">04 April, 17:52</p>
+            <input class="book-order__info-date" v-if="editable === true" value="04 April, 17:52">
+            <button class="book-order__cars-edit" @click="toggleEditable" :class="{'book-order__cars-edit_active' : editable}">
+              <img src="/edit.png" alt="" draggable="false">
+            </button>
+          </div>
           <div class="book-order__info-location">
             <div v-if="editable === false">Gera</div>
             <div v-if="editable === true">
