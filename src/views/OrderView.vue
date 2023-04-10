@@ -14,6 +14,7 @@ import PersSeat from '../components/PersSeat.vue';
 import PersWater from '../components/PersWater.vue';
 import PersLuggage from '../components/PersLuggage.vue';
 import PassengerDetails from '../components/PassengerDetails.vue';
+import PersFlight from '../components/PersFlight.vue';
 
 export default {
   components: {
@@ -29,7 +30,8 @@ export default {
     PersSeat,
     PersWater,
     PersLuggage,
-    PassengerDetails
+    PassengerDetails,
+    PersFlight,
   },
   data() {
     return { 
@@ -81,6 +83,7 @@ export default {
           </div>
           <div class="book-order__cars">
             <p class="book-order__cars-title">Personalize your Transfer</p>
+            <PersFlight />
             <PersSign />
             <PersSeat />
             <PersLanguage />
