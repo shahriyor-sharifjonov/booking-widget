@@ -67,10 +67,10 @@ body{
     transition: 300ms ease;
   }
   &__title{
-    font-size: 24px;
+    font-size: 22px;
     line-height: 120%;
-    margin-bottom: 20px;
-    font-weight: 500;
+    margin-bottom: 25px;
+    font-weight: 400;
   }
   .book-widget__checkbox-input input:checked ~ .book-widget__checkbox-overlay{
     background: var(--secondary-color);
