@@ -1,5 +1,5 @@
 <script>
-import {ref} from 'vue';
+import { ref } from 'vue';
 import flatPickr from 'vue-flatpickr-component';
 import 'flatpickr/dist/flatpickr.css';
 

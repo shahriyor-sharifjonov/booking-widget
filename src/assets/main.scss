@@ -404,6 +404,7 @@ body{
     &-edit{
       line-height: 0;
       width: 20px;
+      min-width: 20px;
       height: 20px;
       border: none;
       background: none;
@@ -462,6 +463,7 @@ body{
       font-size: 14px;
       line-height: 21px;
       min-height: 25px;
+      margin-bottom: 0 !important;
     }
     &-location{
       position: relative;

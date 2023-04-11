@@ -1,9 +1,11 @@
 <script>
+import { computed } from 'vue';
+import { useBookingStore } from '@/store/bookingStore';
+import { ref } from 'vue';
+import flatPickr from 'vue-flatpickr-component';
 import Action from '../components/Action.vue'
 import Header from '../components/OrderHeader.vue'
 import Car from '../components/Car.vue'
-import { computed } from 'vue';
-import { useBookingStore } from '@/store/bookingStore';
 import PersSign from '../components/PersSign.vue';
 import PersComment from '../components/PersComment.vue';
 import PersWait from '../components/PersWait.vue';
@@ -16,10 +18,12 @@ import PersLuggage from '../components/PersLuggage.vue';
 import PassengerDetails from '../components/PassengerDetails.vue';
 import PersFlight from '../components/PersFlight.vue';
 import Payment from '../components/Payment.vue';
+import 'flatpickr/dist/flatpickr.css';
 
 export default {
   components: {
     Action,
+    flatPickr,
     Header,
     Car,
     PersSign,
@@ -38,7 +42,21 @@ export default {
   data() {
     return { 
       services: false,
-      editable: false 
+      editable: false,
+      configdate: ref({
+        wrap: true,
+        altFormat: 'M j, Y',
+        altInput: true,
+        dateFormat: 'Y-m-d',
+      }),
+      configtime: ref({
+        wrap: true,    
+        noCalendar: true,
+        enableTime: true,
+        dateFormat: 'h:i'
+      }),
+      time: new Date().toISOString().substr(11, 5),
+      today: new Date().toISOString().substr(0, 10),
     }
   },
   setup() {
@@ -122,19 +140,22 @@ export default {
             <img src="/staticmap.png" alt="" draggable="false"/>
           </div>
           <div class="book-order__info-header">
-            <p class="book-order__info-date" v-if="editable === false">04 April, 17:52</p>
-            <input class="book-order__info-date" v-if="editable === true" value="04 April, 17:52">
+            <p class="book-order__info-date" v-if="editable === false" @click="toggleEditable">04 April, 17:52</p>
+            <div class="book-widget__date" v-if="editable === true">
+              <input type="date" :value="today">
+              <flat-pickr v-model="time" :config="configtime"/>
+            </div>
             <button class="book-order__cars-edit" @click="toggleEditable" :class="{'book-order__cars-edit_active' : editable}">
               <img src="/edit.png" alt="" draggable="false">
             </button>
           </div>
           <div class="book-order__info-location">
-            <div v-if="editable === false">Gera</div>
+            <div v-if="editable === false" @click="toggleEditable">Gera</div>
             <div v-if="editable === true">
               <input type="text" value="Gera">
             </div>
             <span></span>
-            <div v-if="editable === false">Berlin</div>
+            <div v-if="editable === false" @click="toggleEditable">Berlin</div>
             <div v-if="editable === true">
               <input type="text" value="Berlin">
             </div>
