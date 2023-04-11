@@ -222,6 +222,9 @@ body{
       height: 46px;
       .book-widget__location-wrapper{
         margin-right: 0; 
+        &::before{
+          display: none;
+        }
         &:first-of-type{
           input{
             border-bottom: none;
@@ -968,6 +971,22 @@ body{
   &__bot{
     padding-left: 50px;
     padding-top: 12px;
+    .book-widget__location-solo .book-widget__location-wrapper:first-of-type input{
+      margin-left: 0;
+    }
+    .book-widget__location-solo .book-widget__location-wrapper{
+      justify-content: space-between;
+      &::before{
+        display: none;
+      }
+    }
+    .book-widget__location-solo{
+      border: 1px solid var(--gray);
+      border-radius: 8px;
+      height: 46px;
+      padding: 8px 12px;
+      background: var(--background);
+    }
     &.pl-0{
       padding-top: 2px;
       padding-left: 0;
@@ -978,6 +997,7 @@ body{
       border: 1px solid var(--gray);
       border-radius: 8px;
       width: 100%;
+      height: 46px;
       padding: 8px 12px;
       background: var(--background);
     }
@@ -1064,6 +1084,51 @@ body{
   text-align: center;
   a{
     color: var(--primary-color);
+  }
+}
+
+
+.book-map{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5000;
+  opacity: 0;
+  visibility: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.active{
+    opacity: 1;
+    visibility: visible;
+  }
+  &__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #00000090;
+    cursor: pointer;
+  }
+  &__body{
+    background: var(--background);
+    line-height: 0;
+    padding: 30px;
+    border-radius: 30px;
+    max-width: 80%;
+    width: 900px;
+    aspect-ratio: 16/9;
+    iframe{
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+    }
   }
 }
 

@@ -19,7 +19,6 @@
 
       function toggleMap() {
         booking.setMapOpen(!mapOpen.value);
-        console.log(mapOpen.value);
       }
 
       function setType(value) {

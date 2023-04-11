@@ -1,5 +1,21 @@
 <script>
+    import { computed } from 'vue'
+    import { useBookingStore } from '@/store/bookingStore'
+
     export default {
+        setup() {
+            const booking = useBookingStore()
+            const mapOpen = computed(() => booking.mapOpen)
+
+            function toggleMap() {
+                booking.setMapOpen(!mapOpen.value);
+            }
+
+            return {
+                toggleMap,
+                mapOpen,
+            }
+        },
         data() {
             return {
                 open: false
@@ -26,9 +42,16 @@
             </div>
         </div>
         <div class="book-pers__bot" v-if="open">
-            <div class="book-pers__field">
-                <input class="book-pers__field-text" placeholder="Type your address here (the same town)" />
+            <div class="book-widget__location-solo">
+                <div class="book-widget__location-wrapper">
+                    <input type="text" placeholder="Pickup location">
+                    <button class="book-widget__location-show" @click="toggleMap">show on map</button>
+                </div>
             </div>
+            <!-- <div class="book-pers__field">
+                <input class="book-pers__field-text" placeholder="Type your address here (the same town)" />
+                <button class="book-widget__location-show" @click="toggleMap">show on map</button>
+            </div> -->
         </div>
     </div>
 </template>
