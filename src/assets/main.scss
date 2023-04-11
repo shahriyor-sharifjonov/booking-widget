@@ -941,6 +941,39 @@ body{
     margin-top: 30px;
     padding-top: 0;
   }
+  &__add{
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 50px;
+    border: none;
+    background: none;
+    display: block;
+    margin-top: 18px;
+    color: var(--primary-color);
+    font-size: 14px;
+    cursor: pointer;
+  }
+  &__stop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    .book-widget__location-solo{
+      width: calc(100% - 50px);
+    }
+    &-des{
+      width: 25px;
+      height: 25px;
+      min-width: 25px;
+      border: 2px solid red;
+      background: none;
+      border-radius: 50%;
+      line-height: 0;
+      color: red;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
   &__top{
     display: flex;
     align-items: flex-start;

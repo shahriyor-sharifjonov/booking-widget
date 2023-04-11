@@ -42,16 +42,20 @@
             </div>
         </div>
         <div class="book-pers__bot" v-if="open">
-            <div class="book-widget__location-solo">
-                <div class="book-widget__location-wrapper">
-                    <input type="text" placeholder="Pickup location">
-                    <button class="book-widget__location-show" @click="toggleMap">show on map</button>
+            <div class="book-pers__stop">
+                <div class="book-widget__location-solo df">
+                    <div class="book-widget__location-wrapper">
+                        <input type="text" placeholder="Pickup location">
+                        <button class="book-widget__location-show" @click="toggleMap">show on map</button>
+                    </div>
                 </div>
+                <button class="book-pers__stop-des">-</button>
             </div>
             <!-- <div class="book-pers__field">
                 <input class="book-pers__field-text" placeholder="Type your address here (the same town)" />
                 <button class="book-widget__location-show" @click="toggleMap">show on map</button>
             </div> -->
+            <button class="book-pers__add">+ Extra stop</button>
         </div>
     </div>
 </template>
