@@ -12,5 +12,9 @@
                 <img src="/stripe.svg" alt="" draggable="false" />
             </button>
         </div>
+        <div class="book-payment__coupon"> 
+            <input type="text" placeholder="Coupon code">
+            <button type="button">Apply</button>
+        </div>
     </div>
 </template>

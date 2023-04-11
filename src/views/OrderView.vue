@@ -20,6 +20,7 @@ import PersFlight from '../components/PersFlight.vue';
 import Payment from '../components/Payment.vue';
 import 'flatpickr/dist/flatpickr.css';
 import PersAnimal from '../components/PersAnimal.vue';
+import Navigation from '../components/Navigation.vue';
 
 export default {
   components: {
@@ -29,6 +30,7 @@ export default {
     Car,
     PersSign,
     PersComment,
+    Navigation,
     PersWait,
     PersStop,
     PersMusic,
@@ -89,6 +91,7 @@ export default {
         <div class="book-order__left">
           <div class="book-order__cars">
             <p class="book-order__cars-title">Vehicle Class</p>
+            <Navigation />
             <Action />
             <Car v-for="(car, index) in cars" :key="index" :id="car.id" :img="car.img" :carclass="car.carclass" :type="car.type" :price="car.price" :name="car.name" :passengers="car.passengers" :suitcases="car.suitcases" />
           </div>
@@ -105,6 +108,7 @@ export default {
           </div>
           <div class="book-order__cars">
             <p class="book-order__cars-title">Personalize your Transfer</p>
+            <Navigation />
             <PersFlight />
             <PersSign />
             <PersSeat />
@@ -139,6 +143,7 @@ export default {
           <div class="book-order__cars-header">
             <p class="book-order__info-title">Summary</p>
           </div>
+          <Navigation />
           <div class="book-order__info-img">
             <img src="/staticmap.png" alt="" draggable="false"/>
           </div>

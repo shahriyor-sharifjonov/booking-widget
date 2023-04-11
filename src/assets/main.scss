@@ -263,7 +263,7 @@ body{
         } 
       }
       input{
-        width: calc(100% - 140px);
+        width: calc(100% - 130px);
         margin-left: 10px;
         background: none;
         border: none;
@@ -1133,6 +1133,32 @@ body{
       line-height: 0;
     }
   }
+  &__coupon{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 40px;
+    input{
+      flex-grow: 1;
+      border-radius: 8px;
+      border: 1px solid var(--gray);
+      padding: 6px 12px;
+      background: var(--background);
+    }
+    button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 1px 20px;
+      border: none;
+      background: var(--primary-gradient);
+      color: #fff;
+      border-radius: 8px;
+    }
+  }
 }
 
 
@@ -1200,6 +1226,27 @@ body{
       height: 100%;
       border-radius: 30px;
       overflow: hidden;
+    }
+  }
+}
+
+
+.book-navigation{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 24px;
+  &__button{
+    width: 50%;
+    border: none;
+    background: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-bottom: 1px solid var(--gray);
+    cursor: pointer;
+    &.active{
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
     }
   }
 }
@@ -1376,10 +1423,10 @@ body{
     }
   }
   .book-payment__button{
-    padding: 20px 40px;
+    padding: 20px 30px;
     line-height: 0;
     img{
-      width: 80px;
+      width: 60px;
     }
   }.book-order__btn{
     padding: 16px;
