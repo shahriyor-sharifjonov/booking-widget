@@ -27,7 +27,8 @@
         </div>
         <div class="book-pers__bot" v-if="open">
             <div class="book-pers__field">
-                <input class="book-pers__field-text" placeholder="Name on the sign" />
+                <input type="text" class="book-pers__field-text" placeholder="Name on the sign" />
+                <input type="file" class="book-pers__field-file" />
             </div>
         </div>
     </div>

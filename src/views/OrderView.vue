@@ -19,6 +19,7 @@ import PassengerDetails from '../components/PassengerDetails.vue';
 import PersFlight from '../components/PersFlight.vue';
 import Payment from '../components/Payment.vue';
 import 'flatpickr/dist/flatpickr.css';
+import PersAnimal from '../components/PersAnimal.vue';
 
 export default {
   components: {
@@ -37,8 +38,9 @@ export default {
     PersLuggage,
     PassengerDetails,
     PersFlight,
-    Payment
-  },
+    Payment,
+    PersAnimal
+},
   data() {
     return { 
       services: false,
@@ -110,6 +112,7 @@ export default {
             <!-- <PersMusic /> -->
             <!-- <PersWater /> -->
             <!-- <PersLuggage /> -->
+            <PersAnimal />
             <PersStop />
             <PersWait />
             <PersComment />

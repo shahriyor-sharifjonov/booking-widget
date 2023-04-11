@@ -257,9 +257,14 @@ body{
           background: #e2e8f0;
         }
       }
+      &.w-100-in{
+        input{
+          width: 100%;
+        } 
+      }
       input{
-        margin-left: 10px;
         width: calc(100% - 140px);
+        margin-left: 10px;
         background: none;
         border: none;
         padding: 12px 0;
@@ -984,6 +989,9 @@ body{
       justify-content: flex-start;
       gap: 18px;
       width: calc(100% - 60px);
+      img{
+        max-width: 32px;
+      }
       &_center{
         align-items: center;
       }
@@ -1035,6 +1043,9 @@ body{
     }
   }
   &__field{
+    &-file{
+      margin-top: 12px;
+    }
     &-text{
       border: 1px solid var(--gray);
       border-radius: 8px;
@@ -1106,12 +1117,18 @@ body{
 
 
 .book-payment{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   &__button{
     padding: 20px 50px;
-    background: #e5f0ff;
     border: var(--border);
     border-radius: 15px;
     cursor: pointer;
+    background: var(--background);
+    &.active{
+      background: #e5f0ff;
+    }
     img{
       line-height: 0;
     }
