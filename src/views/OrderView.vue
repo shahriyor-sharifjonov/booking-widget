@@ -21,6 +21,7 @@ import Payment from '../components/Payment.vue';
 import 'flatpickr/dist/flatpickr.css';
 import PersAnimal from '../components/PersAnimal.vue';
 import Navigation from '../components/Navigation.vue';
+import PersReturn from '../components/PersReturn.vue';
 
 export default {
   components: {
@@ -41,7 +42,8 @@ export default {
     PassengerDetails,
     PersFlight,
     Payment,
-    PersAnimal
+    PersAnimal,
+    PersReturn,
 },
   data() {
     return { 
@@ -110,6 +112,7 @@ export default {
             <p class="book-order__cars-title">Personalize your Transfer</p>
             <Navigation />
             <PersFlight />
+            <PersReturn />
             <PersSign />
             <PersSeat />
             <!-- <PersLanguage /> -->
