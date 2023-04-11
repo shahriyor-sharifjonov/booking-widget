@@ -4,6 +4,7 @@ export const useBookingStore = defineStore("booking", {
     state: () => ({
         type: "from-a-to-b",
         returnTrip: false,
+        mapOpen: false,
         // fromAToB: {
         //     pickup: "",
         //     dropoff: "",
@@ -116,6 +117,9 @@ export const useBookingStore = defineStore("booking", {
         // setHourlyRide(value) {
         //     this.hourlyRide = value 
         // },
+        setMapOpen(value) {
+            this.mapOpen = value
+        },
         setSuitcases(value) {
             this.suitcases = value 
         },

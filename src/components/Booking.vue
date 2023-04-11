@@ -15,6 +15,12 @@
       const type = computed(() => booking.type);
       const returnTrip = computed(() => booking.returnTrip);
       const pickup = computed(() => booking.fromAToB.pickup)
+      const mapOpen = computed(() => booking.mapOpen);
+
+      function toggleMap() {
+        booking.setMapOpen(!mapOpen.value);
+        console.log(mapOpen.value);
+      }
 
       function setType(value) {
         booking.setType(value);
@@ -30,12 +36,14 @@
         returnTrip,
         pickup,
         setType,
-        toggleReturnTrip
+        toggleReturnTrip,
+        mapOpen,
+        toggleMap
       };
     },
     methods: {
       submitForm() {
-        this.$router.push({ name: 'order' }); 
+        this.$router.push({ name: 'order' });
       },
     },
   }
@@ -73,6 +81,7 @@
               <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10.8333C8.39171 10.8333 7.08337 9.52501 7.08337 7.91668C7.08337 6.30834 8.39171 5.00001 10 5.00001C11.6084 5.00001 12.9167 6.30834 12.9167 7.91668C12.9167 9.52501 11.6084 10.8333 10 10.8333ZM10 1.66669C6.32421 1.66669 3.33337 4.62835 3.33337 8.26919C3.33337 12.8309 9.20754 17.9184 9.45754 18.1325C9.61421 18.2667 9.80671 18.3334 10 18.3334C10.1934 18.3334 10.3859 18.2667 10.5425 18.1325C10.7925 17.9184 16.6667 12.8309 16.6667 8.26919C16.6667 4.62835 13.6759 1.66669 10 1.66669Z" fill="#8F90A6"/>
             </svg>
             <input type="text" placeholder="Pickup location">
+          <button class="book-widget__location-show" @click="toggleMap">show on map</button>
           </div>
         </div>
         <div class="book-widget__location-solo">
