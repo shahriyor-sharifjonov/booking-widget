@@ -45,14 +45,14 @@ export default {
               <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10.8333C8.39171 10.8333 7.08337 9.52501 7.08337 7.91668C7.08337 6.30834 8.39171 5.00001 10 5.00001C11.6084 5.00001 12.9167 6.30834 12.9167 7.91668C12.9167 9.52501 11.6084 10.8333 10 10.8333ZM10 1.66669C6.32421 1.66669 3.33337 4.62835 3.33337 8.26919C3.33337 12.8309 9.20754 17.9184 9.45754 18.1325C9.61421 18.2667 9.80671 18.3334 10 18.3334C10.1934 18.3334 10.3859 18.2667 10.5425 18.1325C10.7925 17.9184 16.6667 12.8309 16.6667 8.26919C16.6667 4.62835 13.6759 1.66669 10 1.66669Z" fill="#8F90A6"/>
           </svg>
           <input type="text" placeholder="Pickup location" v-model="pickupLocation">
-          <button class="book-widget__location-show" @click="toggleMap">show on map</button>
+          <button class="book-widget__location-show" @click="toggleMap" v-if="pickupLocation.length > 0">show on map</button>
         </div>
         <div class="book-widget__location-wrapper">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0563 3.89969C15.6713 3.62136 15.173 3.54219 14.7238 3.68886C14.2438 3.84553 13.6188 3.92803 12.9163 3.92803C11.9797 3.92803 11.1663 3.60886 10.3047 3.27136C9.33634 2.89219 8.33384 2.49969 7.08301 2.49969C4.67801 2.49969 3.74634 3.29303 3.58301 3.45303C3.42384 3.60886 3.33301 3.82386 3.33301 4.04803V9.99969V12.6189V16.6664C3.33301 17.1272 3.70634 17.4997 4.16634 17.4997C4.62717 17.4997 4.99967 17.1272 4.99967 16.6664V13.0847C5.32884 12.9389 5.97717 12.738 7.08301 12.738C8.01967 12.738 8.83384 13.0572 9.69551 13.3955C10.6638 13.7747 11.6655 14.1664 12.9163 14.1664C14.4238 14.1664 15.3522 13.8514 15.8672 13.5872C16.3605 13.3314 16.6663 12.8355 16.6663 12.2905V5.08803C16.6663 4.62136 16.4388 4.17719 16.0563 3.89969Z" fill="#8F90A6"/>
           </svg>
           <input type="text" placeholder="Dropoff location" v-model="dropoffLocation">
-          <button class="book-widget__location-show" @click="toggleMap">show on map</button>
+          <button class="book-widget__location-show" @click="toggleMap" v-if="dropoffLocation.length > 0">show on map</button>
         </div>
     </div>
 </template>

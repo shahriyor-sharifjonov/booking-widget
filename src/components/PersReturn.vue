@@ -18,7 +18,8 @@
         },
         data() {
             return {
-                open: false
+                open: false,
+                inputvalue: '',
             }
         },
     }
@@ -44,8 +45,8 @@
         <div class="book-pers__bot" v-if="open">
             <div class="book-widget__location-solo df">
                 <div class="book-widget__location-wrapper">
-                    <input type="text" placeholder="Pickup location">
-                    <button class="book-widget__location-show" @click="toggleMap">show on map</button>
+                    <input type="text" placeholder="Pickup location" v-model="inputvalue">
+                    <button class="book-widget__location-show" v-if="inputvalue.length > 0" @click="toggleMap">show on map</button>
                 </div>
             </div>
             <!-- <div class="book-pers__field">
