@@ -1,12 +1,12 @@
 <script>
 import { ref } from 'vue';
-import flatPickr from 'vue-flatpickr-component';
-import 'flatpickr/dist/flatpickr.css';
+import dayjs from 'dayjs';
+// import flatPickr from 'vue-flatpickr-component';
+// import 'flatpickr/dist/flatpickr.css';
 
-// const time = ref(null);
 export default {
   components: {
-    flatPickr
+    // flatPickr
   },
   data() {
     return {
@@ -22,7 +22,7 @@ export default {
         enableTime: true,
         dateFormat: 'h:i'
       }),
-      time: new Date().toISOString().substr(11, 5),
+      time: ref(dayjs('12:08', 'HH:mm')),
       today: new Date().toISOString().substr(0, 10),
     }
   },
@@ -33,7 +33,7 @@ export default {
   <div class="book-widget__date">
     <!-- <flat-pickr v-model="today" :config="configdate"/> -->
     <input type="date" :value="today">
-    <flat-pickr v-model="time" :config="configtime"/>
+    <a-time-picker v-model:value="time" format="HH:mm" />
     <!-- <input type="time" :value="time"> -->
   </div>
 </template>

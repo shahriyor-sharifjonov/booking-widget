@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useBookingStore } from '@/store/bookingStore';
 import { ref } from 'vue';
-import flatPickr from 'vue-flatpickr-component';
+import dayjs from 'dayjs';
 import Action from '../components/Action.vue'
 import Header from '../components/OrderHeader.vue'
 import Car from '../components/Car.vue'
@@ -18,7 +18,6 @@ import PersLuggage from '../components/PersLuggage.vue';
 import PassengerDetails from '../components/PassengerDetails.vue';
 import PersFlight from '../components/PersFlight.vue';
 import Payment from '../components/Payment.vue';
-import 'flatpickr/dist/flatpickr.css';
 import PersAnimal from '../components/PersAnimal.vue';
 import Navigation from '../components/Navigation.vue';
 import PersReturn from '../components/PersReturn.vue';
@@ -26,7 +25,6 @@ import PersReturn from '../components/PersReturn.vue';
 export default {
   components: {
     Action,
-    flatPickr,
     Header,
     Car,
     PersSign,
@@ -61,7 +59,7 @@ export default {
         enableTime: true,
         dateFormat: 'h:i'
       }),
-      time: new Date().toISOString().substr(11, 5),
+      time: ref(dayjs('12:08', 'HH:mm')),
       today: new Date().toISOString().substr(0, 10),
     }
   },
@@ -154,7 +152,7 @@ export default {
             <p class="book-order__info-date" v-if="editable === false" @click="toggleEditable">04 April, 17:52</p>
             <div class="book-widget__date" v-if="editable === true">
               <input type="date" :value="today">
-              <flat-pickr v-model="time" :config="configtime"/>
+              <a-time-picker v-model:value="time" format="HH:mm" />
             </div>
             <button class="book-order__cars-edit" @click="toggleEditable" :class="{'book-order__cars-edit_active' : editable}">
               <img src="/edit.png" alt="" draggable="false">

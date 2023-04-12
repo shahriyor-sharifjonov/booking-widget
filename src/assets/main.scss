@@ -24,11 +24,6 @@ body{
 }
 
 
-.flatpickr-calendar{
-  font-family: 'Poppins', sans-serif;
-}
-
-
 .book-widget,
 .book-order{
   background: var(--background);
@@ -281,7 +276,9 @@ body{
   &__date{
     display: flex;
     justify-content: space-between;
-    input{
+    gap: 15px;
+    &>input,
+    &>div{
       flex-basis: calc(50% - 7.5px);
       border: none;
       background: #fafafc;
@@ -289,6 +286,14 @@ body{
       border: 1px solid var(--gray);
       border-radius: 6px;
       padding: 15px;
+      .ant-picker-focused{
+        *{
+          outline: none !important;
+          box-shadow: none !important;
+        }
+        outline: none !important;
+        box-shadow: none !important;
+      }
     }
   }
   &__next{
@@ -444,6 +449,7 @@ body{
     &-title{
       font-size: 22px;
       line-height: 120%;
+      margin-bottom: 0;
     }
     &-img{
       max-width: 100%;
@@ -477,7 +483,7 @@ body{
         position: absolute;
         height: calc(100% - 22px);
         top: 11px;
-        left: 7px;
+        left: 5px;
         width: 2px;
         background: var(--secondary-color);
         display: block;
@@ -1013,6 +1019,7 @@ body{
     font-weight: 400;
     font-size: 14px;
     line-height: 120%;
+    margin-bottom: 0;
     color: var(--gray);
     // &_green{
     //   color: rgb(2, 169, 2);
@@ -1063,6 +1070,7 @@ body{
         p{
           font-size: 14px;
           font-weight: 400;
+          margin-bottom: 0;
           &+p{
             margin-top: 4px;
             font-size: 14px;

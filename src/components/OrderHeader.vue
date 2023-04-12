@@ -17,7 +17,7 @@
     <div class="book-header">
         <div class="book-header__button">
             <input type="checkbox" id="sharedtaxi">
-            <p>Shared Taxi</p>
+            <span>Shared Taxi</span>
             <label for="sharedtaxi" class="book-header__button-overlay"></label>
         </div>
         <button class="book-header__button">
