@@ -12,7 +12,7 @@
     <div class="book-pers">
         <div class="book-pers__top">
             <div class="book-pers__top-left book-pers__top-left_center">
-                <img src="/comment.svg" alt="" draggable="false" />
+                <img src="/message.png" alt="" draggable="false" />
                 <div class="book-pers__top-content">
                     <p class="book-pers__title">Comment for driver</p>
                 </div>

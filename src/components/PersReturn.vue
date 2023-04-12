@@ -29,7 +29,7 @@
     <div class="book-pers">
         <div class="book-pers__top">
             <div class="book-pers__top-left book-pers__top-left_center">
-                <img src="/return.svg" alt="" draggable="false" />
+                <img src="/return.png" alt="" draggable="false" />
                 <div class="book-pers__top-content">
                     <p class="book-pers__title">Different pickup on return</p>
                     <!-- <p class="book-pers__p book-pers__p_green">An additional fee is 20.00€</p> -->

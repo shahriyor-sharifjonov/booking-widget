@@ -35,7 +35,7 @@
     <div class="book-pers">
         <div class="book-pers__top">
             <div class="book-pers__top-left">
-                <img src="/seat.svg" alt="" draggable="false" />
+                <img src="/seat.png" alt="" draggable="false" />
                 <div class="book-pers__top-content">
                     <p class="book-pers__title">I require a child seat</p>
                     <p class="book-pers__p book-pers__p_green">For an extra fee - 4.00€ per unit</p>
