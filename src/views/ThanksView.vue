@@ -16,6 +16,7 @@ import PersSeat from '../components/PersSeat.vue';
 import PersWater from '../components/PersWater.vue';
 import PersLuggage from '../components/PersLuggage.vue';
 import PassengerDetails from '../components/PassengerDetails.vue';
+import PassengerInfo from '../components/PassengerInfo.vue';
 import PersFlight from '../components/PersFlight.vue';
 import Payment from '../components/Payment.vue';
 import PersAnimal from '../components/PersAnimal.vue';
@@ -29,6 +30,7 @@ export default {
     Car,
     PersSign,
     PersComment,
+    PassengerInfo,
     Navigation,
     PersWait,
     PersStop,
@@ -45,22 +47,23 @@ export default {
 },
   data() {
     return { 
-      services: false,
-      editable: false,
-      configdate: ref({
-        wrap: true,
-        altFormat: 'M j, Y',
-        altInput: true,
-        dateFormat: 'Y-m-d',
-      }),
-      configtime: ref({
-        wrap: true,    
-        noCalendar: true,
-        enableTime: true,
-        dateFormat: 'h:i'
-      }),
-      time: ref(dayjs('12:08', 'HH:mm')),
-      today: new Date().toISOString().substr(0, 10),
+        services: false,
+        editable: false,
+        configdate: ref({
+            wrap: true,
+            altFormat: 'M j, Y',
+            altInput: true,
+            dateFormat: 'Y-m-d',
+        }),
+        configtime: ref({
+            wrap: true,    
+            noCalendar: true,
+            enableTime: true,
+            dateFormat: 'h:i'
+        }),
+        open: false,
+        time: ref(dayjs('12:08', 'HH:mm')),
+        today: new Date().toISOString().substr(0, 10),
     }
   },
   setup() {
@@ -68,11 +71,14 @@ export default {
     const cars = computed(() => booking.cars);
 
     return {
-      booking,
-      cars,
+        booking,
+        cars,
     };
   },
   methods: {
+    toggleContent() {
+        this.open = !this.open;
+    },
     toggleServices() {
       this.services = !this.services;
     },
@@ -86,59 +92,37 @@ export default {
 <template>
   <div class="book-order">
     <div class="book-order__container">
-      <Header />
+        <div class="book-header">
+            <div class="book-header__dropdown">
+                <button class="book-header__dropdown-btn" :class="{'book-header__dropdown-btn_active' : open}" @click="toggleContent">
+                    <img src="/eng.png" alt="" draggable="false" />
+                    <span>English</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.71005 11.71L11.3001 14.3C11.6901 14.69 12.3201 14.69 12.7101 14.3L15.3001 11.71C15.9301 11.08 15.4801 10 14.5901 10H9.41005C8.52005 10 8.08005 11.08 8.71005 11.71Z" fill="#1A1B19"/>
+                    </svg>
+                </button>
+                <div class="book-header__dropdown-content" v-if="open">
+                    <button class="book-header__dropdown-item" @click="toggleContent">
+                        <img src="/eng.png" alt="" draggable="false" />
+                        English
+                    </button>
+                    <button class="book-header__dropdown-item" @click="toggleContent">
+                        <img src="/eng.png" alt="" draggable="false" />
+                        English
+                    </button>
+                    <button class="book-header__dropdown-item" @click="toggleContent">
+                        <img src="/eng.png" alt="" draggable="false" />
+                        English
+                    </button>
+                </div>
+            </div>
+        </div>
       <div class="book-order__wrapper">
         <div class="book-order__left">
-          <div class="book-order__cars">
-            <p class="book-order__cars-title">Vehicle Class</p>
-            <Navigation />
-            <Action />
-            <Car v-for="(car, index) in cars" :key="index" :id="car.id" :img="car.img" :carclass="car.carclass" :type="car.type" :price="car.price" :name="car.name" :passengers="car.passengers" :suitcases="car.suitcases" />
-          </div>
-          <div class="book-order__rec">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <mask id="mask0_6_113" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="1" y="1" width="18" height="18">
-              <path d="M1.74542 9.23873C1.73543 9.12367 1.74946 9.00779 1.78663 8.89844C1.82381 8.78909 1.8833 8.68866 1.96134 8.60353C2.03939 8.51839 2.13428 8.45041 2.23999 8.40389C2.3457 8.35738 2.45992 8.33334 2.57542 8.33331H4.16667C4.38768 8.33331 4.59964 8.42111 4.75592 8.57739C4.9122 8.73367 5 8.94563 5 9.16664V17.0833C5 17.3043 4.9122 17.5163 4.75592 17.6726C4.59964 17.8288 4.38768 17.9166 4.16667 17.9166H3.26417C3.0556 17.9167 2.85459 17.8385 2.70084 17.6976C2.5471 17.5567 2.45179 17.3632 2.43375 17.1554L1.74542 9.23873ZM7.5 8.90623C7.5 8.55789 7.71667 8.24623 8.03125 8.09789C8.71833 7.77373 9.88875 7.12248 10.4167 6.24206C11.0971 5.10706 11.2254 3.05664 11.2463 2.58706C11.2492 2.52123 11.2475 2.45539 11.2563 2.39039C11.3692 1.57664 12.9396 2.52706 13.5417 3.53206C13.8688 4.07706 13.9104 4.79331 13.8763 5.35289C13.8392 5.95123 13.6638 6.52914 13.4917 7.10331L13.125 8.32706H17.6488C17.7775 8.32705 17.9045 8.35688 18.0198 8.4142C18.1351 8.47152 18.2355 8.55477 18.3132 8.65743C18.3909 8.76009 18.4438 8.87936 18.4677 9.00588C18.4916 9.1324 18.4858 9.26273 18.4508 9.38664L16.2133 17.31C16.1639 17.4847 16.0588 17.6386 15.914 17.7481C15.7691 17.8576 15.5924 17.9168 15.4108 17.9166H8.33333C8.11232 17.9166 7.90036 17.8288 7.74408 17.6726C7.5878 17.5163 7.5 17.3043 7.5 17.0833V8.90623Z" fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-              </mask>
-              <g mask="url(#mask0_6_113)">
-              <path d="M0 0H20V20H0V0Z" fill="#1A1B19"/>
-              </g>
-            </svg>
-            AtoB Transfer guarantees only the best price
-          </div>
-          <div class="book-order__cars">
-            <p class="book-order__cars-title">Personalize your Transfer</p>
-            <Navigation />
-            <PersFlight />
-            <PersReturn />
-            <PersSign />
-            <PersSeat />
-            <!-- <PersLanguage /> -->
-            <!-- <PersMusic /> -->
-            <!-- <PersWater /> -->
-            <!-- <PersLuggage /> -->
-            <PersAnimal />
-            <PersStop />
-            <PersWait />
-            <PersComment />
-          </div>
-          <div class="book-order__rec">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <mask id="mask0_6_113" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="1" y="1" width="18" height="18">
-              <path d="M1.74542 9.23873C1.73543 9.12367 1.74946 9.00779 1.78663 8.89844C1.82381 8.78909 1.8833 8.68866 1.96134 8.60353C2.03939 8.51839 2.13428 8.45041 2.23999 8.40389C2.3457 8.35738 2.45992 8.33334 2.57542 8.33331H4.16667C4.38768 8.33331 4.59964 8.42111 4.75592 8.57739C4.9122 8.73367 5 8.94563 5 9.16664V17.0833C5 17.3043 4.9122 17.5163 4.75592 17.6726C4.59964 17.8288 4.38768 17.9166 4.16667 17.9166H3.26417C3.0556 17.9167 2.85459 17.8385 2.70084 17.6976C2.5471 17.5567 2.45179 17.3632 2.43375 17.1554L1.74542 9.23873ZM7.5 8.90623C7.5 8.55789 7.71667 8.24623 8.03125 8.09789C8.71833 7.77373 9.88875 7.12248 10.4167 6.24206C11.0971 5.10706 11.2254 3.05664 11.2463 2.58706C11.2492 2.52123 11.2475 2.45539 11.2563 2.39039C11.3692 1.57664 12.9396 2.52706 13.5417 3.53206C13.8688 4.07706 13.9104 4.79331 13.8763 5.35289C13.8392 5.95123 13.6638 6.52914 13.4917 7.10331L13.125 8.32706H17.6488C17.7775 8.32705 17.9045 8.35688 18.0198 8.4142C18.1351 8.47152 18.2355 8.55477 18.3132 8.65743C18.3909 8.76009 18.4438 8.87936 18.4677 9.00588C18.4916 9.1324 18.4858 9.26273 18.4508 9.38664L16.2133 17.31C16.1639 17.4847 16.0588 17.6386 15.914 17.7481C15.7691 17.8576 15.5924 17.9168 15.4108 17.9166H8.33333C8.11232 17.9166 7.90036 17.8288 7.74408 17.6726C7.5878 17.5163 7.5 17.3043 7.5 17.0833V8.90623Z" fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-              </mask>
-              <g mask="url(#mask0_6_113)">
-              <path d="M0 0H20V20H0V0Z" fill="#1A1B19"/>
-              </g>
-            </svg>
-            Flexible cancellation up to 24 Hours before your transfer
-          </div>
-          <PassengerDetails />
-          <Payment />
-          <a href="/thanks" class="book-order__btn">
-            Payment
+          <PassengerInfo />
+          <a href="/order" class="book-order__btn">
+            Return 
           </a>
-          <p class="book-order__p">By clicking "Payment" or "Request" you agree with <a href="#">Terms & Conditions</a>. The service is provided by Atob Transfer LTD</p>
         </div>
         <div class="book-order__info">
           <div class="book-order__cars-header">
@@ -149,22 +133,19 @@ export default {
             <img src="/staticmap.png" alt="" draggable="false"/>
           </div>
           <div class="book-order__info-header">
-            <p class="book-order__info-date" v-if="editable === false" @click="toggleEditable">04 April, 17:52</p>
+            <p class="book-order__info-date" v-if="editable === false">04 April, 17:52</p>
             <div class="book-widget__date" v-if="editable === true">
               <input type="date" :value="today">
               <a-time-picker v-model:value="time" format="HH:mm" />
             </div>
-            <button class="book-order__cars-edit" @click="toggleEditable" :class="{'book-order__cars-edit_active' : editable}">
-              <img src="/edit.png" alt="" draggable="false">
-            </button>
           </div>
           <div class="book-order__info-location">
-            <div v-if="editable === false" @click="toggleEditable">Gera</div>
+            <div v-if="editable === false">Gera</div>
             <div v-if="editable === true">
               <input type="text" value="Gera">
             </div>
             <span></span>
-            <div v-if="editable === false" @click="toggleEditable">Berlin</div>
+            <div v-if="editable === false">Berlin</div>
             <div v-if="editable === true">
               <input type="text" value="Berlin">
             </div>
