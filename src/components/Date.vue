@@ -23,7 +23,7 @@ export default {
         dateFormat: 'h:i'
       }),
       time: ref(dayjs('12:08', 'HH:mm')),
-      today: new Date().toISOString().substr(0, 10),
+      today: ref(dayjs()),
     }
   },
 }
@@ -32,7 +32,8 @@ export default {
 <template>
   <div class="book-widget__date">
     <!-- <flat-pickr v-model="today" :config="configdate"/> -->
-    <input type="date" :value="today">
+    <!-- <input type="date" :value="today"> -->
+    <a-date-picker v-model:value="today" />
     <a-time-picker v-model:value="time" format="HH:mm" />
     <!-- <input type="time" :value="time"> -->
   </div>

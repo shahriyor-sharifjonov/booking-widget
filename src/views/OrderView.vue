@@ -60,7 +60,7 @@ export default {
         dateFormat: 'h:i'
       }),
       time: ref(dayjs('12:08', 'HH:mm')),
-      today: new Date().toISOString().substr(0, 10),
+      today: ref(dayjs()),
     }
   },
   setup() {
@@ -151,7 +151,7 @@ export default {
           <div class="book-order__info-header">
             <p class="book-order__info-date" v-if="editable === false" @click="toggleEditable">04 April, 17:52</p>
             <div class="book-widget__date" v-if="editable === true">
-              <input type="date" :value="today">
+              <a-date-picker v-model:value="today" />
               <a-time-picker v-model:value="time" format="HH:mm" />
             </div>
             <button class="book-order__cars-edit" @click="toggleEditable" :class="{'book-order__cars-edit_active' : editable}">

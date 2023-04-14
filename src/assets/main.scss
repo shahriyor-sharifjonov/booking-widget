@@ -23,6 +23,10 @@ body{
   color: var(--text);
 }
 
+.book-widget__type .book-widget__date > input, .book-widget__date > div{
+  background: #fafafc !important;
+}
+
 
 .book-widget,
 .book-order{
